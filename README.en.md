@@ -1,8 +1,8 @@
 
 # py_flsk_ resultOut
-####Introduction
+#### Introduction
 An open source project based on python flask web for learning platform and for publishing results
-####Installation Tutorial
+#### Installation Tutorial
 1. Download python3
 ```sh
 yum -y install python3
@@ -33,7 +33,7 @@ log_ src:
 ```
 4. Return to py after completion_ flask_ Run under the resultOut path:
 5. Note:
-The default is * * 443 * * port. If you need to modify it, you need to go to each file in the bin directory and modify it
+The default is **443** port. If you need to modify it, you need to go to each file in the bin directory and modify it
 nohup python3 -m flask run -h0.0.0.0 -p443 &
 Change the - p443 in to your preferred port.
 And in the last line of app.py, app.run (host='0.0.0.0 ', port=443),
@@ -43,5 +43,5 @@ The - p443 in can also be changed to your preferred port!
 2. New Feat_ Xxx branch
 3. Submit code
 4. Create a new Pull Request
-####Thank you
+#### Thank you
 1. Thank JetBrainask_resultOut
