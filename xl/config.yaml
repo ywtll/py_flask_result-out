@@ -1,8 +1,7 @@
 id_src:
-  "[相对路径]"
+  "xl/id.xls"
 score_src:
-  ""
-#  "xl/java.xls"
+  "xl/score.xls"
 subject:
   "xxx考试成绩"
 log_src:
