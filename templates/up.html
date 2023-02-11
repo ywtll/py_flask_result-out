@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link type="text/css" href="../static/css/login.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <style>
+        .background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas class="background"></canvas>
+<article>
+    <form method="post">
+        <div class="box">
+            <h2>{{ user_info }}</h2>
+
+            <div class="input-box">
+                <label>{{ subject }}的成绩为：{{ score }}分</label>
+            </div>
+
+        </div>
+        <section id="txt"></section>
+    </form>
+</article>
+<script>
+window.onload = function(){
+    Particles.init({
+        selector: '.background',
+        maxParticles: 50,
+        connectParticles: 'true',
+        speed: 1,
+        minDistance: 140,
+        sizeVariations: 8,
+        color: '#87c3fa',
+    });
+}
+</script>
+</body>
+</html>

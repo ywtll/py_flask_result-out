@@ -1,0 +1,9 @@
+id_src:
+  "[相对路径]"
+score_src:
+  ""
+#  "xl/java.xls"
+subject:
+  "xxx考试成绩"
+log_src:
+  "logs/times.log"

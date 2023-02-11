@@ -1,0 +1,203 @@
+
+* {
+*     margin: 0;
+*         padding: 0;
+*         }
+*
+*         @media screen and (max-width: 720px) {
+*             body {
+*                     background: url("https://www.guanyujiang.com/api/bingapi.php?size=1920x1080");
+*                             /*background: url("https://api.r10086.com/img-api.php?zsy=原神?size=1920x1080");*/
+    }
+}
+
+body {
+    height: 100vh;
+    /* background: url(); */
+    background: url(https://www.guanyujiang.com/api/bingapi.php);
+    /*background: url(https://api.r10086.com/img-api.php?zsy=原神);*/
+    /*background: url(../images/bg.jpg);*/
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+.box {
+    z-index: 1;
+    margin-left: 4px;
+    margin-top: 4px;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    background-color: rgb(78, 85, 87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: slidein linear 1s;
+}
+
+article {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 360px;
+    height: 360px;
+}
+#txt::after {
+    z-index: -1;
+    position: absolute;
+    top: -50%;
+    right: 50%;
+    content: "";
+    margin-left: 2px;
+    padding-top: 2px;
+    width: 355px;
+    height: 355px;
+    background: linear-gradient(0deg,transparent,#f0e50c, #ece812);
+    border: 1px ;
+    border-radius: 10px;
+    transform-origin: bottom right;
+    animation: slidein linear 10s,xuan linear 6s infinite;
+    
+}
+#txt::before {
+    z-index: -1;
+    position: absolute;
+    top: -50%;
+    right: 50%;
+    content: "";
+    
+    margin-left: 2px;
+    padding-top: 2px;
+    width: 355px;
+    height: 355px;
+    background: linear-gradient(0deg,transparent,#3094ec, #00f2fe);
+    border: 1px ;
+    border-radius: 10px;
+    transform-origin: bottom right;
+    animation: slidein linear 10s,xuan linear 6s infinite;
+    animation-delay: -3s;
+}
+@keyframes xuan {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slidein {
+    0% {
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+.box > h2 {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+}
+
+.box .input-box {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.box .input-box label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 5px;
+}
+
+.box .input-box input {
+    letter-spacing: 1px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.2);
+    outline: none;
+    padding: 0 12px;
+    color: rgba(255,255,255,0.9);
+    transition: 0.2s;
+}
+
+.box .input-box input:focus {
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.box .btn-box {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.box .btn-box  span a {
+    outline: none;
+    display: block;
+    width: 250px;
+    text-align: end;
+    text-decoration: none;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+}
+
+.box .btn-box > a:hover {
+    color: rgba(255,255,255,1);
+}
+
+.box .btn-box > div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box .btn-box > div > button {
+    outline: none;
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.box .btn-box > div > button:nth-of-type(1) {
+    /*登录组成的按钮 120px*/
+    width: 250px;
+    height: 35px;
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(192, 119, 91, 0.7);
+    background: rgba(192, 119, 91, 0.7);
+}
+
+.box .btn-box > div > button:nth-of-type(2) {
+    width: 120px;
+    height: 35px;
+    margin-left: 10px;
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(192, 119, 91, 0.7);
+    background: rgba(192, 119, 91, 0.7);
+}
+
+.box .btn-box > div > button:hover {
+    border: 1px solid rgba(251, 128, 71, 0.7);
+    background: rgba(251, 128, 71, 0.5);
+}
+
+

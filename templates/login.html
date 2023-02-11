@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link type="text/css" href="../static/css/login.css" rel="stylesheet">
+    <script src="../static/js/check_code.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <style>
+        .background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+        }
+
+        #code_box {
+            width: 50px;
+            height: 34px;
+            display: inline-block;
+            background-color: white;
+            line-height: 30px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .check {
+            display: none;
+            z-index: 999;
+            width: 350px;
+            height: 180px;
+            text-align: center;
+            margin-top: 88px;
+            margin-left: 5px;
+            border-radius: 10px;
+            background-color: rgb(85, 94, 100);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .check h3 {
+            color: skyblue;
+            margin: 20px 0px;
+        }
+
+        .check input {
+            letter-spacing: 1px;
+            font-size: 14px;
+            box-sizing: border-box;
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            padding: 0 12px;
+            color: rgba(255, 255, 255, 0.9);
+            transition: 0.2s;
+        }
+
+        .check button {
+            width: 120px;
+            height: 35px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(192, 119, 91, 0.7);
+            background: rgba(192, 119, 91, 0.7);
+        }
+    </style>
+</head>
+
+<body onload="refreshCode()">
+<canvas class="background"></canvas>
+<article>
+    <form method="post" onsubmit="return mySubmit()">
+        <div class="box">
+            <h2>Login</h2>
+            <div class="input-box">
+                <label for="user">姓名</label>
+                <input id="user" type="text" name="user"/>
+            </div>
+            <div class="input-box">
+                <label for="password">学号(后4位)</label>
+                <input id="password" type="password" name="pwd"/>
+            </div>
+            <div class="btn-box">
+                <span style="color: skyblue; font-size: 14px">{{ msg }}</span>
+                <div>
+                    <button id="login-button">登录</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="check">
+            <h3>请输入验证码</h3>
+            <div class="input-box">
+                <input id="queding" type="text" name="code" />
+                <div id="code_box"></div>
+            </div>
+            <button id="over" type="submit">确定</button>
+        </div>
+    </form>
+
+
+    <section id="txt"></section>
+
+
+</article>
+
+<script>
+window.onload = function(){
+    refreshCode()
+    Particles.init({
+        selector: '.background',
+        maxParticles: 50,
+        connectParticles: 'true',
+        speed: 1,
+        minDistance: 140,
+        sizeVariations: 8,
+        color: '#87c3fa',
+    });
+}
+</script>
+
+<script>
+    var btn = document.querySelector('button')
+    var check = document.querySelector('.check')
+    btn.addEventListener('click', function (e) {
+        e.preventDefault()
+        check.style.display = 'block'
+    })
+
+    var div = document.querySelector('#code_box')
+    var input = document.querySelector('#queding')
+    var over = document.querySelector('#over')
+    var login = document.querySelector("#login-button")
+    var go = document.querySelector("#queding")
+
+
+    var number = 0
+    var step = 0
+
+    var b = false
+    function mySubmit(){
+        return b
+    }
+
+    // 实现回车登录
+    go.addEventListener("keyup", function(event) {
+    event.preventDefault();
+        if (event.keyCode === 13 && number===1) {
+            over.click();
+        }
+        number = 1
+    });
+
+
+    // 光标跳转事件
+    login.addEventListener("click", function() {
+        document.getElementById("queding").focus();
+    });
+
+    // 登录操作
+    over.addEventListener('click', function () {
+        // 全部都转换为大写
+        var ros = input.value.toUpperCase()
+        var value = div.innerHTML.toUpperCase()
+
+        step++
+        if (step >= 3) {
+            // 刷新页面
+            location.reload()
+
+        }
+        if (ros === value) {
+            // 成功
+            b = true;
+        } else {
+            alert('验证码错误,已经输错了'+step+"次");
+            input.value = "";
+            refreshCode();
+            b = false;
+        }
+    })
+    </script>
+</body>
+</html>
