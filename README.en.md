@@ -2,6 +2,7 @@
 # py_flsk_ resultOut
 #### Introduction
 An open source project based on python flask web for learning platform and for publishing results
+At the same time, in order to facilitate Xiaobai's use, and to facilitate the release and update of scores, xls tables are used instead of databases, supporting xls and xlsx formats
 #### Installation Tutorial
 1. Download python3
 ```sh
