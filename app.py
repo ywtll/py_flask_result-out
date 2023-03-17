@@ -38,13 +38,13 @@ def login():  # put application's code here
         xl = read_xl()
         # 区分两种格式
         if id_src[-4:] == ".xls":
-            list_dict = xl.read_xls_dict(dest=id_src, row_id=1, data="000")
+            list_dict = xl.read_xls_dict(dest=id_src, row_id=1, data="")
         else:
-            list_dict = xl.read_xlsx_dict(dest=id_src, row_id=1, data="000")
+            list_dict = xl.read_xlsx_dict(dest=id_src, row_id=1, data="")
 
         list_name = list_dict[user]
         # 验证正确
-        if list_name[-9:] == str(pwd)[-4:] + ".0000":
+        if list_name[-4:] == str(pwd)[-4:]:
             session['user_info'] = user
             log.aw_log(dest=log_src, name=str(user), v="login success!", ip=ip)  # 日志
             return redirect('/up')
